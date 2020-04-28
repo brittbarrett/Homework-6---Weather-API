@@ -19,16 +19,16 @@ $.ajax({
   console.log(response);
 
   //   add city name content to html (would also like to display corresponding icon that i noticed in api response example)
-  $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+  $("city").html("<h1>" + response.name + " Weather Details</h1>");
 
   // add temp content to html
-  $(".temp").text("Temperature (K) " + response.current.temp);
-  $(".tempF").text("Temperature (F) " + tempF.toFixed(2));
+  $("#temp").text("Temperature (K) " + response.current.temp);
+  $("#tempF").text("Temperature (F) " + tempF.toFixed(2));
 
   //   Transfer  rest of content to HTML
-  $(".humidity").text("Humidity: " + response.current.humidity);
-  $(".wind").text("Wind Speed: " + response.current.wind_speed);
-  $(".uvIndex").text("UV Index: " + response.current.uvi);
+  $("#humidity").text("Humidity: " + response.current.humidity);
+  $("#wind").text("Wind Speed: " + response.current.wind_speed);
+  $("#uvIndex").text("UV Index: " + response.current.uvi);
 
   // Convert the temp to fahrenheit
   var tempF = (response.current.temp - 273.15) * 1.8 + 32;
@@ -54,4 +54,5 @@ $.ajax({
   console.log(response);
 
   $(".forecast").html("<h2>" + "5-Day Forecast</h2>");
+  //   how do i make sure this shows up in the correct spot on the html page?
 });
