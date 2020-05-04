@@ -16,26 +16,30 @@ if (!Array.isArray(cityArray)) {
   cityArray = [];
 }
 // DISPLAY THE CURRENT DATE
-var displayDay = moment().format("MMM Do YYYY");
+var displayDay = moment().format("MMM Do, YYYY");
 // console.log(displayDay);
 $("#current-day").append(" " + displayDay);
 
 function submitCity(e) {
   event.preventDefault();
   //grab value
-  //push into array
-  // $(".userform").val();
-  cityArray.push($(".userform").val());
-  console.log(cityArray);
-  //set the array to local storage
-  localStorage.setItem("cities", JSON.stringify(cityArray));
-  //call the 5day passing in the value
-  fiveday($(".userform").val());
-  //call the 1day passing in the value
-  getWeather($(".userform").val());
-  //call create cityButton
-  cityButton();
-  $(".userform").val("");
+  var usercity = $(".userform").val().trim();
+  console.log(usercity);
+  if (usercity.length) {
+    //push into array
+    // $(".userform").val();
+    cityArray.push(usercity);
+    console.log(cityArray);
+    //set the array to local storage
+    localStorage.setItem("cities", JSON.stringify(cityArray));
+    //call the 5day passing in the value
+    fiveday(usercity);
+    //call the 1day passing in the value
+    getWeather(usercity);
+    //call create cityButton
+    cityButton();
+    $(".userform").val("");
+  }
 }
 function cityButton() {
   var localcityArray = JSON.parse(localStorage.getItem("cities"));
@@ -115,7 +119,7 @@ function getWeather(query) {
     });
   });
 }
-getWeather();
+// getWeather();
 function fiveday(query) {
   // 5 day forecast api from OpenWeather
   var forecastApiKey = "87c1321c379a2aaa5caef175776e2f8b";
@@ -139,7 +143,7 @@ function fiveday(query) {
     //           <p class="card-text"> humidity</p>
     //      </div>
     // </div>
-    for (var i = 0; i < 5; i++) {
+    for (var i = 1; i < 6; i++) {
       var d1 = $("<div>");
       //<div></div>
       d1.attr("class", "card");
@@ -147,7 +151,10 @@ function fiveday(query) {
       var d2 = $("<div>");
       //<div></div>
       d2.attr("class", "card-header");
-      d2.text(response.list[i * 8].dt_txt.split(" ")[0]);
+      var currentdate = response.list[i * 8].dt_txt.split(" ")[0];
+      d2.text(moment(currentdate).format("MMMM Do, YYYY"));
+
+      console.log(moment(currentdate).format("MMMM Do, YYYY"));
       var d3 = $("<div>");
       //<div></div>
       d3.attr("class", "card-body");
@@ -173,7 +180,7 @@ function fiveday(query) {
       //</div>
       d1.append(d2);
       d1.append(d3);
-      $("#forecast-sec").prepend(d1);
+      $("#forecast-sec").append(d1);
       //date
       console.log(response.list[0].dt_txt);
       var date = response.list[0].main.temp;
