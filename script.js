@@ -91,6 +91,16 @@ function getWeather(query) {
     console.log(response);
     console.log("name:" + response.name);
     $("#current-city-weather").text(response.name);
+    // icon - not working
+    var iconMainUrl =
+      "http://openweathermap.org/img/w/" +
+      response.list[0].weather[0].icon +
+      ".png";
+    var imageMain = $("<img>");
+    imageMain.attr("src", iconMainUrl);
+    imageMain.attr("id", "mainicon");
+    $("#current-city-weather").append(iconMainUrl);
+    console.log(iconMainUrl);
     // convert temp to F
     var temp = response.main.temp;
     var tempF = (temp - 273) * 1.8 + 32;
@@ -119,7 +129,6 @@ function getWeather(query) {
     });
   });
 }
-// getWeather();
 function fiveday(query) {
   // 5 day forecast api from OpenWeather
   var forecastApiKey = "87c1321c379a2aaa5caef175776e2f8b";
@@ -186,6 +195,16 @@ function fiveday(query) {
       var date = response.list[0].main.temp;
       //date = date.split(" ")[0];
       //pic
+      // console.log(response.list[i * 8].weather[0].icon);
+      var iconurl =
+        "http://openweathermap.org/img/w/" +
+        response.list[i * 8].weather[0].icon +
+        ".png";
+      console.log(iconurl);
+      var img = $("<img>");
+      img.attr("src", iconurl);
+      img.attr("id", "weathericon");
+      d1.append(img);
       //temp
 
       console.log(date);
