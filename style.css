@@ -4,3 +4,60 @@
   margin-left: 80px;
   margin-bottom: 10px;
 }
+header {
+  background-color: #e2c3c8;
+  color: whitesmoke;
+  font-family: "Patrick Hand", cursive;
+  font-size: 30px;
+  text-align: center;
+}
+body {
+  background-image: url(https://images.unsplash.com/photo-1530908295418-a12e326966ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);
+}
+.forecast-header {
+  font-size: 35px;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+}
+h1 {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  color: #afafc7;
+}
+#current-day {
+  font-family: "Patrick Hand", cursive;
+  text-align: center;
+}
+.jumbotron {
+  background-color: #f7dfd3;
+  border: #e2c3c8;
+  padding: 0;
+}
+.forecast-body {
+  background-color: #f7dfd3;
+}
+.forecast-header {
+  background-color: #e2c3c8;
+}
+.container {
+  padding: 25px;
+}
+.form-inline {
+  background-color: #e2c3c8;
+}
+.card-title {
+  font-family: "Patrick Hand", cursive;
+  text-align: center;
+}
+.card-text {
+  text-align: center;
+}
+.search-body {
+  background-color: #f7dfd3;
+}
+.card {
+  background-color: #f7dfd3;
+}
+/* .card-header {
+  background-color: #5f7daf;
+} */

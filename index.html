@@ -10,6 +10,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
     <title>Weather App</title>
   </head>
@@ -22,17 +25,17 @@
 
               <form class="form-inline">
                 <input class="userform" />
-                <button class="save" onclick="submitCity()">Save</button>
+                <button class="save" onclick="submitCity()">Search</button>
                 <div class="buttonarea"></div>
               </form>
             </nav>
-            <div class="card-body"></div>
+            <div class="card-body search-body"></div>
           </div>
         </div>
         <div class="col-sm">
           <div class="jumbotron jumbotron">
             <div class="container">
-              <h1 class="display-4" id="current-city-weather">Selected City</h1>
+              <h1 class="display-4" id="current-city-weather">Search City</h1>
               <h4 id="current-day">Date:</h4>
               <ul>
                 <li id="Temp">Temp</li>
@@ -44,13 +47,12 @@
           </div>
         </div>
         <div class="col-sm">
-          <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header">Forecast</div>
+          <div class="card bg-light mb-3" id="forecast-card" style="max-width: 18rem;">
+            <div class="card-header forecast-header">Forecast</div>
             <div class="card-body">
               <h5 class="card-title">Forecast 5 Days</h5>
               <p class="card-text" id="forecast-sec">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Search a city to view that location's five-day weather forecast. 
               </p>
             </div>
           </div>
